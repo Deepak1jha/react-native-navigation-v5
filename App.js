@@ -1,10 +1,13 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import Dashboard from "./screens/dashboard/dashboard";
+import AppNavigator from "./navigation/app/AppNavigator";
+import {NavigationContainer} from "@react-navigation/native";
 
 export default function App() {
   return (
-    <Dashboard/>
+    <NavigationContainer>
+      <AppNavigator/>
+    </NavigationContainer>
     // <Login/>
   );
 }
