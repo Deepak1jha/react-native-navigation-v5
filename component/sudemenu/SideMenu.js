@@ -2,7 +2,6 @@ import React from 'react';
 import {Avatar, Button, Text} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import colors from "../../config/colors";
 import {MaterialIcons} from '@expo/vector-icons';
 import DrawerSection from "react-native-paper/src/components/Drawer/DrawerSection";
 
@@ -43,10 +42,10 @@ export default function SideMenu({navigation}) {
         />
       </DrawerSection>
       <DrawerSection title={"Action"} style={{borderRadius: 25}}>
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity>
           <View>
             <View>
-              <Button icon="logout">
+              <Button onPress={() => alert("Logout")} icon="logout">
                 Logout
               </Button>
             </View>
@@ -63,16 +62,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: colors.lightGrey,
     borderRadius: 15,
     padding: 15,
-    // bordarColor:"black"
-    // radiusBorder:
-    // margin: 20
   },
   profile: {
     flex: 1,
-    backgroundColor: colors.lightGrey,
     margin: 20,
     flexDirection: "row"
   },

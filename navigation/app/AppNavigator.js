@@ -1,33 +1,10 @@
 import * as React from 'react';
 import SignUp from "../../screens/signUp/SignUp";
 import Dashboard from "../../screens/dashboard/dashboard";
-import {createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList,} from '@react-navigation/drawer';
+import {createDrawerNavigator,} from '@react-navigation/drawer';
 import SideMenu from "../../component/sudemenu/SideMenu";
-
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-      <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-      />
-      <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-      />
-      <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-      />
-      <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-      />
-    </DrawerContentScrollView>
-  );
-}
-
+import colors from "../../config/colors";
+import DashboardNavigator from "../DashboardNavigator/dashboardNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -36,13 +13,12 @@ const AppNavigator = () => (
     drawerContent={(props) => <SideMenu {...props}/>}
     drawerContentOptions={{
       activeTintColor: '#e91e63',
-        itemStyle: { marginVertical: 10 },
-      activeBackgroundColor:"gery",
-      inactiveTintColor:"green"
+      itemStyle: {marginVertical: 10},
+      activeBackgroundColor: colors.primary,
+      inactiveTintColor: colors.primary
     }}
-    openByDefault
     overlayColor="transparent">
-    <Drawer.Screen name="Dashboard" component={Dashboard}/>
+    <Drawer.Screen name="Dashboard" component={DashboardNavigator}/>
     <Drawer.Screen name="SignUp" component={SignUp}/>
   </Drawer.Navigator>
 );
